@@ -6,10 +6,10 @@ class PriorityQueue:
         self._elements = []
 
     def enqueue_with_priority(self, priority, value):
-        heappush(self._elements, (priority, value))
+        heappush(self._elements, (-priority, value))
 
     def dequeue(self):
-        return heappop(self._elements)
+        return heappop(self._elements)[1]
 
 CRITICAL = 3
 IMPORTANT = 2
@@ -21,4 +21,7 @@ messages.enqueue_with_priority(NEUTRAL, "Radio station tuned in")
 messages.enqueue_with_priority(CRITICAL, "Brake pedal depressed")
 messages.enqueue_with_priority(IMPORTANT, "Hazard lights turned on")
 
+messages.dequeue()
+messages.dequeue()
+messages.dequeue()
 messages.dequeue()
